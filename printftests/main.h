@@ -5,22 +5,22 @@
 #include <stdarg.h>
 #include <limits.h>
 
-void _printf(const char * const format, ...);
+int  _printf(const char * const format, ...);
 int _putchar(char c);
-void printchar(va_list var);
-void printstring(va_list var);
-void printint(va_list var);
-void printpercent(va_list var);
+int printchar(va_list val);
+int printstring(va_list val);
+int printint(va_list val);
+int printpercent(va_list val);
 
 /**
  *struct type - Struct function
- *@t: Char variable for t
- *@f: Pointer of f
+ *@b: Char variable for b
+ *@p: Pointer of p
  *
  */
-typedef struct type
+typedef struct functions
 {
-	char t;
-	void(*f)(va_list);
-} type;
+	char b;
+	int(*p)(va_list);
+} functions;
 #endif
