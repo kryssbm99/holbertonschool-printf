@@ -33,8 +33,7 @@ int printstring(va_list val)
  */
 int printchar(va_list val)
 {
-    _putchar(va_arg(val, int));
-    return (1);
+     return (_putchar(va_arg(val, int)));
 }
 
 /**
