@@ -9,68 +9,45 @@
  *
  * Return: Number of characters printed (excluding null byte)
  */
-int print_func(const char *format, va_list val)
-{
-        int i, j;
-        int count = 0;
-
-        functions type[] =
-        {
-                {'c', printchar},
-                {'s', printstring},
-                {'%', printpercent},
-                {'i', printint},
-		{'d', printint},
-                {0, NULL}
-        };
-
-        i = 0;
-
-        while (format && format[i])
-        {
-                if (format[i] != '%')
-                {
-                        _putchar(format[i]);
-                        count++;
-                }
-                else if (format[i] == '%')
-                {
-                        i++;
-                        j = 0;
-                        while (type[j].b)
-                        {
-                                if (type[j].b == format[i])
-                                {
-					type[j].p(val);
-					break;
-                                }
-                                j++;
-                        }
-                }
-		i++;
-        }
-        return (count);
-}
-
-/**
- * _printf - Main function of printf
- * @format: Format string
- *
- * Return: Number of characters printed (excluding null byte)
- */
 int _printf(const char *format, ...)
 {
-        va_list val;
-        int count;
+    va_list args;
+    int count = 0;
 
-        va_start(val, format);
+    va_start(args, format);
 
-        if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+    while (*format)
+    {
+        if (*format != '%')
         {
-                return (0);
+            _putchar(*format);
+            count++;
         }
-        count = print_func(format, val);
+        else
+        {
+            format++;
+            switch (*format)
+            {
+            case 'c':
+                count += printchar(args);
+                break;
+            case 's':
+                count += printstring(args);
+                break;
+            case '%':
+                count += printpercent(args);
+                break;
+            default:
+                _putchar('%');
+                _putchar(*format);
+                count += 2;
+                break;
+            }
+        }
+        format++;
+    }
 
-        va_end(val);
-        return (count);
+    va_end(args);
+
+    return (count);
 }
