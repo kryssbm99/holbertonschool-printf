@@ -23,11 +23,7 @@ int printstring(va_list val)
         count++;
         i++;
     }
-    if (s == NULL)
-    {
-	    count += 6;
-    }
-    return count;
+    return (count);
 }
 
 /**
