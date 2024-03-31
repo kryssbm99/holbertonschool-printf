@@ -11,7 +11,7 @@ This project presents a custom implementation of the `_printf` function in C, de
 - Support for `%d` and `%i`: Prints signed integers.
 
 ## Example
-![Example 1](\Users\kryss\Desktop\carbon.png)
+![Example 1](\holbertonschool-printf\printftests\carbon.png)
 
 ## Authors
 This project was created by:
