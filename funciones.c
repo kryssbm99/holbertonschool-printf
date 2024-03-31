@@ -47,14 +47,15 @@ int printint(va_list val)
     int count = 0;
     int divisor = 1;
     int temp;
+    int zero = 0; 
 
-    if (n == 0)
+    if (n == zero)
     {
         _putchar('0');
         return 1;
     }
 
-    if (n < 0)
+    if (n < zero)
     {
         _putchar('-');
         count++;
@@ -62,13 +63,13 @@ int printint(va_list val)
     }
 
     temp = n;
-    while (temp / 10 != 0)
+    while (temp / 10 != zero)
     {
         divisor *= 10;
         temp /= 10;
     }
 
-    while (divisor != 0)
+    while (divisor != zero)
     {
         int digit = n / divisor;
         _putchar(digit + '0');
@@ -77,7 +78,7 @@ int printint(va_list val)
         divisor /= 10;
     }
 
-    return (count);
+    return count;
 }
 /**
  * printpercent - Function prints the '%' character
