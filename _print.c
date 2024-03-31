@@ -42,8 +42,8 @@ int _printf(const char *format, ...)
 	    case 'd':
 		count += printint(args);
 		break;
-	 default:
-		 _putchar('%');
+            default:
+	        _putchar('%');
 		_putchar(*format);
 		count += 2;
 		break;
@@ -51,6 +51,6 @@ int _printf(const char *format, ...)
         }
         format++;
     }
-	va_end(args);
+    va_end(args);
     return (count);
 }
