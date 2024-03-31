@@ -11,48 +11,46 @@
  */
 int _printf(const char *format, ...)
 {
-    va_list args; /* Variable argument list */
-    int count = 0; /* Counter for characters printed */
+    va_list args;
+    int count = 0;
 
-    va_start(args, format); /* Initialize va_list to access variable arguments */
+    va_start(args, format);
 	
-    while (*format)  /* Loop through the format string */
+    while (*format)
     {
-        if (*format != '%') /* If current character is not a format specifier */
+        if (*format != '%')
         {
-            _putchar(*format); /* Print the character */
-            count++; /* Increment the character count */
+            _putchar(*format);
+            count++;
         }
-        else /* If current character is a format specifier */
+        else
         {
-            format++; /* Move to the next character to check the specifier */
-
-	    /* Determine the type of format specifier */
+            format++; 
+	    
             switch (*format)
             {
-            case 'c': /* Character specifier */
-                count += printchar(args); /* Print char */
+            case 'c':
+                count += printchar(args);
                 break;
-            case 's': /* String specifier */
-                count += printstring(args); /* Print string */
+            case 's':
+                count += printstring(args);
                 break;
-            case '%': /* Percent specifier */
-                count += printpercent(args); /* Print percent */
+            case '%':
+                count += printpercent(args);
                 break;
-	    case 'i': /* Integer specifier */
-	    case 'd': /* Integer specifier */
-		count += printint(args); /* Print integer */
+	    case 'i':
+	    case 'd':
+		count += printint(args);
 		break;
-	 default: /* Unknown specifier */
-		 _putchar('%'); /* Print percent character */
-		_putchar(*format); /* Print unknown character */
-		count += 2; /* Increment character count by 2 */
+	 default:
+		 _putchar('%');
+		_putchar(*format);
+		count += 2;
 		break;
             }
         }
-        format++; /* Move to the next character in the format string */
+        format++;
     }
-	va_end(args); /* Clean up the va_list */
-	
-    return (count); /* Return the total count of characters printed */
+	va_end(args);
+    return (count);
 }
