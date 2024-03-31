@@ -11,7 +11,10 @@
  */
 int _printf(const char *format, ...)
 {
+    va_list args;
     int count = 0;
+
+    va_start(args, format);
 
     while (*format)
     {
@@ -47,6 +50,6 @@ int _printf(const char *format, ...)
         }
         format++;
     }
-
+	va_end(args);
     return (count);
 }
