@@ -7,19 +7,16 @@
  */
 int printstring(va_list val)
 {
-    int i = 0; /* Iterator of string */
-    char *s; /* Pointer to string */
-    int count = 0; /* Count of characters printed
+    int i = 0;
+    char *s;
+    int count = 0;
 
-    /* Retrieve the string argument from va_list */
     s = va_arg(val, char*);
 
     if (s == NULL)
     {
-        s = "(null)"; /* Prints (null) */
+        s = "(null)";
     }
-
-    /* Prints each character in string */
     while (s[i] != '\0')
     {
         _putchar(s[i]);
@@ -36,32 +33,21 @@ int printstring(va_list val)
  */
 int printchar(va_list val)
 {
-     return (_putchar(va_arg(val, int))); /* Prints a character argument retrieved from va_list */
+     return (_putchar(va_arg(val, int)));
 }
 
 /**
  * printint - Function prints integers
  * @val: Parameter Variable
- * Description:
- * This function prints an integer argument retrieved from a va_list.
- *   It handles both positive and negative integers
  * Return: Number of characters printed
  */
 int printint(va_list val)
 {
-<<<<<<< HEAD
     int n = va_arg(val, int);
     int count = 0;
     int divisor = 1;
     int temp;
     int zero = 0; 
-=======
-    int n = va_arg(val, int); /* Retrieve int argument */
-    int count = 0; /* Count of characters printed */
-    int divisor = 1; /* Divisor for extracting digits */
-    int temp; /* Temporary variable for calculations */
-    int zero = 0;
->>>>>>> working
 
     if (n == zero)
     {
@@ -69,10 +55,6 @@ int printint(va_list val)
         return 1;
     }
 
-<<<<<<< HEAD
-=======
-    /* If the integer is negative, print '-' and make it positive */
->>>>>>> working
     if (n < zero)
     {
         _putchar('-');
@@ -81,34 +63,22 @@ int printint(va_list val)
     }
 
     temp = n;
-<<<<<<< HEAD
-=======
-    /* Find the divisor for the most significant digit */
->>>>>>> working
     while (temp / 10 != zero)
     {
         divisor *= 10;
         temp /= 10;
     }
 
-<<<<<<< HEAD
     while (divisor != zero)
-=======
-    while (divisor != zero) 
->>>>>>> working
     {
-        int digit = n / divisor; /* Extract the most significant digit */
-        _putchar(digit + '0'); /* Convert digit
-        count++; /* Increment count of characters printed */
-        n %= divisor; /* Remove the most significant digit */
-        divisor /= 10; /* Update divisor for the next digit */
+        int digit = n / divisor;
+        _putchar(digit + '0');
+        count++;
+        n %= divisor;
+        divisor /= 10;
     }
 
-<<<<<<< HEAD
     return count;
-=======
-    return count; /* Return the total characters printed */
->>>>>>> working
 }
 /**
  * printpercent - Function prints the '%' character
@@ -117,7 +87,7 @@ int printint(va_list val)
  */
 int printpercent(va_list val)
 {
-    (void)val;    /* Ignoring the va_list argument */
-    _putchar('%'); /* Print % character */
-    return (1); /* Return 1 (only one character printed)
+    (void)val;
+    _putchar('%');
+    return (1); 
 }
